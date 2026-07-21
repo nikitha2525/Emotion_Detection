@@ -1,0 +1,6 @@
+Flask
+numpy
+torch
+torchvision
+pillow
+huggingface_hub
