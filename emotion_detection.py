@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 from torchvision import transforms
 from PIL import Image
+from huggingface_hub import hf_hub_download
 
 app = Flask(__name__)
 
@@ -32,9 +33,15 @@ class CNN(nn.Module):
     x = self.fc2(x)
     return x
 
+model_path = hf_hub_download(
+    repo_id="Nikitha2525/Emotion_Detection",
+    filename="Emotion.pth"
+)
 device = torch.device("cpu")
 model = CNN()
-model.load_state_dict(torch.load("Emotion.pth", map_location=device))
+model.load_state_dict(
+    torch.load(model_path, map_location=device)
+)
 model.eval()
 
 transform_pipeline = transforms.Compose([
