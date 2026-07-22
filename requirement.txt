@@ -1,6 +1,8 @@
-Flask
+Flask==3.1.1
+gunicorn==23.0.0
 numpy
-torch
-torchvision
-pillow
-huggingface_hub
+pandas
+opencv-python-headless
+Pillow
+tensorflow
+keras
